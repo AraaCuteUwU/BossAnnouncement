@@ -16,7 +16,7 @@ use pocketmine\utils\SingletonTrait;
 use pocketmine\utils\TextFormat;
 use xenialdan\apibossbar\DiverseBossBar;
 
-class Loader extends PluginBase implements Listener {
+class BossAnnouncement extends PluginBase implements Listener {
     use SingletonTrait;
 
     /** @var DiverseBossBar $bar */
