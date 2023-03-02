@@ -15,8 +15,8 @@ class EventListener implements Listener {
      * @return void
      */
     public function onJoin(PlayerJoinEvent $ev): void {
-        if (Loader::getInstance()->isWorldEnabled($ev->getPlayer()->getWorld()->getFolderName())) {
-            Loader::getInstance()->bar->addPlayer($ev->getPlayer());
+        if (BossAnnouncement::getInstance()->isWorldEnabled($ev->getPlayer()->getWorld()->getFolderName())) {
+            BossAnnouncement::getInstance()->bar->addPlayer($ev->getPlayer());
         }
     }
 
@@ -25,7 +25,7 @@ class EventListener implements Listener {
      * @return void
      */
     public function onLeave(PlayerQuitEvent $ev): void {
-        Loader::getInstance()->bar->removePlayer($ev->getPlayer());
+        BossAnnouncement::getInstance()->bar->removePlayer($ev->getPlayer());
     }
 
     /**
@@ -34,9 +34,9 @@ class EventListener implements Listener {
      */
     public function onLevelChange(EntityTeleportEvent $ev): void {
         if ($ev->isCancelled() || !$ev->getEntity() instanceof Player) return;
-        Loader::getInstance()->bar->removePlayer($ev->getEntity());
-        if (Loader::getInstance()->isWorldEnabled($ev->getTo()->getWorld()->getFolderName())) {
-            Loader::getInstance()->bar->addPlayer($ev->getEntity());
+        BossAnnouncement::getInstance()->bar->removePlayer($ev->getEntity());
+        if (BossAnnouncement::getInstance()->isWorldEnabled($ev->getTo()->getWorld()->getFolderName())) {
+            BossAnnouncement::getInstance()->bar->addPlayer($ev->getEntity());
         }
     }
 
