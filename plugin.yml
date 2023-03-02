@@ -1,6 +1,6 @@
 ---
 name: BossAnnouncement
-main: xenialdan\BossAnnouncement\Loader
+main: xenialdan\BossAnnouncement\BossAnnouncement
 version: 2.0.4
 api: 4.0.0
 load: POSTWORLD
