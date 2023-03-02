@@ -38,16 +38,16 @@ class BossAnnouncement extends PluginBase implements Listener {
         $this->title = $this->getConfig()->get('head-message', '');
         $this->subTitles = $this->getConfig()->get('changing-messages', []);
         $this->changeSpeed = max(1, $this->getConfig()->get('change-speed', 1));
-        $this->bar = (new DiverseBossBar())->setTitle($this->title);//setTitle needed?
+        $this->bar = (new DiverseBossBar())->setTitle($this->title);
         $this->getScheduler()->scheduleRepeatingTask(new class extends Task {
             public function onRun(): void {
-                Loader::getInstance()->i++;
-                if (Loader::getInstance()->i >= count(Loader::getInstance()->subTitles)) {
-                    Loader::getInstance()->i = 0;
+                BossAnnouncement::getInstance()->i++;
+                if (BossAnnouncement::getInstance()->i >= count(BossAnnouncement::getInstance()->subTitles)) {
+                    BossAnnouncement::getInstance()->i = 0;
                 }
-                foreach (Loader::getInstance()->bar->getPlayers() as $player) {
-                    if ($player->isOnline() && Loader::getInstance()->isWorldEnabled($player->getWorld()->getFolderName())) {
-                        Loader::getInstance()->setText($player);
+                foreach (BossAnnouncement::getInstance()->bar->getPlayers() as $player) {
+                    if ($player->isOnline() && BossAnnouncement::getInstance()->isWorldEnabled($player->getWorld()->getFolderName())) {
+                        BossAnnouncement::getInstance()->setText($player);
                     }
 
                 }
