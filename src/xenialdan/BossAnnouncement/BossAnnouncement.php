@@ -7,6 +7,8 @@
  * A simple boss bar tile plugin using apibossbar
  */
 
+namespace xenialdan\BossAnnouncement;
+
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\player\Player;
